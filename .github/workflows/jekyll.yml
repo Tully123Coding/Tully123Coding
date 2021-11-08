@@ -1,0 +1,76 @@
+name: Jekyll site CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
+        
+        
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+background-image: url('https://assets.weforum.org/article/image/large_a5es8TYU_LIcrKtwuLcGzE-ieQDLkkQAnFVN97guuXc.jpg');
+background-repeat: repeat;
+background-attachment: fixed;
+background-size: 100% 100%;
+    }
+header {text-align: center;}
+h1 {text-align: center;}
+h2 {text-align: center;}
+p1 {text-align: center;}
+background {text-allign: center;}
+header {
+  color: white;
+  font-family: Corbel Bold Italic;
+  font-size: 300%;
+}
+h1 {
+  color: white;
+  font-family: Corbel Bold Italic;
+  font-size: 250%;
+}
+p1 {
+  color: white;
+  font-family: Corbel Bold Italic;
+  font-size: 160%;
+}
+h2 {
+  color: white;
+  font-family: Corbel Bold Italic;
+  font-size: 200%;
+{img width 50%
+
+</style>
+<title>eSolar</title>
+</head>
+<body style="background-color:black;">
+
+
+  <header> ESOLAR </header>
+  <h1>SHINING LIGHT PROJECT:</h1>
+  <h2> LET THERE BE LIGHT </h2>
+
+  <p1>Energy Poverty is experienced by millions all over the world. Unlike regular poverty in which famalies lack food, clean and fresh water as well as basic living requirements. Energy poverty is where families are disconnected from an electricity grid, and are forced to use dangerous and harmful kerosene lamps. These lamps are used for school work, cooking and more. The chemicals created by these lamps are the equivelant to smoking several packs of ciggaretes a day. </p1>
+
+
+
+
+</body>
+</html>
+
